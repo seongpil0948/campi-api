@@ -3,6 +3,7 @@ package router
 import (
 	"campi/api/docs"
 	"log"
+	"net"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -29,6 +30,7 @@ func InitRoutes() gin.Engine {
 
 	docs.SwaggerInfo.BasePath = "/api"
 	g.GET("/helloworld", Helloworld)
+	g.GET("/checkIp", checkCLientIp)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return *r
 }
@@ -44,4 +46,10 @@ func InitRoutes() gin.Engine {
 // @Router /example/helloworld [get]
 func Helloworld(g *gin.Context) {
 	g.JSON(http.StatusOK, "helloworld")
+}
+
+func checkCLientIp(g *gin.Context) {
+	six := g.ClientIP()
+	log.Printf("Check Client Ip Ipv6: %v, \n IPv4: %v ", six, net.ParseIP(six).To4())
+	g.JSON(http.StatusOK, "Check Ip API")
 }
