@@ -12,11 +12,11 @@ func SetAuthRoutes(g *gin.RouterGroup) {
 // @Summary Login example
 // @Schemes
 // @Description Login
-// @Tags example
+// @Tags Auth
 // @Accept json
 // @Produce json
 // @Success 200 {string} Login
-// @Router /auth/Login [post]
+// @Router /auth/login [post]
 func Login(c *gin.Context) {
 	getPath := c.Request.URL.String()
 	c.JSON(200, gin.H{

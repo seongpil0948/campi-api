@@ -1,13 +1,28 @@
 info:
   contact: {}
 paths:
-  /CheckClientIp:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Login example
+      tags:
+      - Auth
+  /common/CheckClientIp:
     get:
       consumes:
-        - application/json
+      - application/json
       description: Health Check from Client Ip
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
@@ -15,14 +30,14 @@ paths:
             type: string
       summary: Check Client Ip
       tags:
-        - Common
-  /push/SamplePush:
+      - Common
+  /fcm/SamplePush:
     get:
       consumes:
-        - application/json
+      - application/json
       description: push messaging
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
@@ -30,5 +45,5 @@ paths:
             type: string
       summary: Pushing Message
       tags:
-        - Push
+      - Push
 swagger: "2.0"

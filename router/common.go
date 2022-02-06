@@ -20,7 +20,7 @@ func SetCommonRoutes(g *gin.RouterGroup) {
 // @Accept json
 // @Produce json
 // @Success 200 {string} CheckClientIp
-// @Router common/CheckClientIp [get]
+// @Router /common/CheckClientIp [get]
 func CheckClientIp(g *gin.Context) {
 	six := g.ClientIP()
 	g.JSON(http.StatusOK, fmt.Sprintf("Check Client Ip Ipv6: %v,  IPv4: %v ", six, net.ParseIP(six).To4()))

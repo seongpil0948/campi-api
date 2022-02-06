@@ -1,42 +1,77 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "contact": {}
-  },
-  "paths": {
-    "/CheckClientIp": {
-      "get": {
-        "description": "Health Check from Client Ip",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "tags": ["Common"],
-        "summary": "Check Client Ip",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "string"
-            }
-          }
-        }
-      }
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
     },
-    "/push/SamplePush": {
-      "get": {
-        "description": "push messaging",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "tags": ["Push"],
-        "summary": "Pushing Message",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "string"
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "description": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login example",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
-          }
+        },
+        "/common/CheckClientIp": {
+            "get": {
+                "description": "Health Check from Client Ip",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Common"
+                ],
+                "summary": "Check Client Ip",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/fcm/SamplePush": {
+            "get": {
+                "description": "push messaging",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Push"
+                ],
+                "summary": "Pushing Message",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

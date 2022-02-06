@@ -23,7 +23,30 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/CheckClientIp": {
+        "/auth/login": {
+            "post": {
+                "description": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login example",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/common/CheckClientIp": {
             "get": {
                 "description": "Health Check from Client Ip",
                 "consumes": [
@@ -46,7 +69,7 @@ var doc = `{
                 }
             }
         },
-        "/push/SamplePush": {
+        "/fcm/SamplePush": {
             "get": {
                 "description": "push messaging",
                 "consumes": [
