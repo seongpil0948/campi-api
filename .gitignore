@@ -30,7 +30,6 @@ public
 *.rej
 *.exe
 .*.swp
-core
 *.cgo*.go
 *.cgo*.c
 _cgo_*

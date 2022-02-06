@@ -1,12 +1,12 @@
 package router
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net/http"
 
-	firebase "firebase.google.com/go"
+	fbapp "campi/api/service/fire/app"
+
 	"firebase.google.com/go/messaging"
 	"github.com/gin-gonic/gin"
 )
@@ -26,12 +26,8 @@ func SetFcmRoutes(g *gin.RouterGroup) {
 // @Router /fcm/SamplePush [post]
 func SamplePush(g *gin.Context) {
 	println("In Sample Push")
-	ctx := context.Background()
-	app, err := firebase.NewApp(ctx, nil)
-	if err != nil {
-		log.Fatalf("error initializing app: %v\n", err)
-	}
-	client, err := app.Messaging(ctx)
+	app := fbapp.GetFireInstance()
+	client, err := app.Inst.Messaging(app.Ctx)
 	if err != nil {
 		log.Fatalf("error initializing FCM: %v\n", err)
 	}
@@ -52,7 +48,7 @@ func SamplePush(g *gin.Context) {
 			"c7-VtIhFTKqsz8-X7N5pQP:APA91bGbjcWHn55qSnu2pXTid2qO6Rum3yAiCzgkb7MOhkLBxDwitoyygsrSBcDQL2uKNZmaiBAUiu66FCIow5ZUJ8pkpR0HvtUAV-jM33ABVlInd7-C9a50Avn4KX5h4Ls6_paNfvEO",
 		},
 	}
-	response, err := client.SendMulticast(ctx, message)
+	response, err := client.SendMulticast(app.Ctx, message)
 	if err != nil {
 		log.Fatalln(err)
 	}
