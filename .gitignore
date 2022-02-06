@@ -1,5 +1,6 @@
 secret
 public
+.vscode
 
 # --------------------------------------------------------
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
