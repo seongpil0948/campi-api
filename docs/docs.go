@@ -23,9 +23,9 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/example/helloworld": {
+        "/checkClientIp": {
             "get": {
-                "description": "do ping",
+                "description": "Health Check from Client Ip",
                 "consumes": [
                     "application/json"
                 ],
@@ -33,9 +33,32 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "example"
+                    "Common"
                 ],
-                "summary": "ping example",
+                "summary": "Check Client Ip",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/push/samplePush": {
+            "get": {
+                "description": "push messaging",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Push"
+                ],
+                "summary": "Pushing Message",
                 "responses": {
                     "200": {
                         "description": "OK",

@@ -1,11 +1,11 @@
 info:
   contact: {}
 paths:
-  /example/helloworld:
+  /checkClientIp:
     get:
       consumes:
       - application/json
-      description: do ping
+      description: Health Check from Client Ip
       produces:
       - application/json
       responses:
@@ -13,7 +13,22 @@ paths:
           description: OK
           schema:
             type: string
-      summary: ping example
+      summary: Check Client Ip
       tags:
-      - example
+      - Common
+  /push/samplePush:
+    get:
+      consumes:
+      - application/json
+      description: push messaging
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Pushing Message
+      tags:
+      - Push
 swagger: "2.0"

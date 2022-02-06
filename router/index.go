@@ -24,33 +24,33 @@ func InitRoutes() gin.Engine {
 	}
 	SetAuthRoutes(g.Group("auth"))
 	docs.SwaggerInfo.BasePath = "/api"
-	g.GET("/helloworld", Helloworld)
-	g.GET("/checkIp", checkClientIp)
+	g.GET("/checkClientIp", checkClientIp)
+	g.GET("/push/samplePush", samplePush)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
-	g.GET("/push/msg", samplePush)
 	return *r
 }
 
-// PingExample godoc
-// @Summary ping example
+// @Summary Check Client Ip
 // @Schemes
-// @Description do ping
-// @Tags example
+// @Description Health Check from Client Ip
+// @Tags Common
 // @Accept json
 // @Produce json
-// @Success 200 {string} Helloworld
-// @Router /example/helloworld [get]
-func Helloworld(g *gin.Context) {
-	g.JSON(http.StatusOK, "helloworld")
-}
-
+// @Success 200 {string} CheckClientIp
+// @Router /checkClientIp [get]
 func checkClientIp(g *gin.Context) {
 	six := g.ClientIP()
-	log.Printf("Check Client Ip Ipv6: %v, \n IPv4: %v ", six, net.ParseIP(six).To4())
-	g.JSON(http.StatusOK, "Check Ip API")
+	g.JSON(http.StatusOK, fmt.Sprintf("Check Client Ip Ipv6: %v,  IPv4: %v ", six, net.ParseIP(six).To4()))
 }
 
+// @Summary Pushing Message
+// @Schemes
+// @Description push messaging
+// @Tags Push
+// @Accept json
+// @Produce json
+// @Success 200 {string} samplePush
+// @Router /push/samplePush [get]
 func samplePush(g *gin.Context) {
 	println("In Sample Push")
 	ctx := context.Background()

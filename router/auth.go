@@ -14,7 +14,7 @@ func SetAuthRoutes(g *gin.RouterGroup) {
 	// @Tags example
 	// @Accept json
 	// @Produce json
-	// @Success 200 {string} Helloworld
-	// @Router /example/helloworld [get]
+	// @Success 200 {string} Login
+	// @Router /auth/Login [post]
 	g.POST("/login", auth.Login)
 }
