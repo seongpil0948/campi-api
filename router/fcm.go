@@ -23,7 +23,7 @@ func SetFcmRoutes(g *gin.RouterGroup) {
 // @Accept json
 // @Produce json
 // @Success 200 {string} SamplePush
-// @Router /fcm/SamplePush [get]
+// @Router /fcm/SamplePush [post]
 func SamplePush(g *gin.Context) {
 	println("In Sample Push")
 	ctx := context.Background()
@@ -38,8 +38,9 @@ func SamplePush(g *gin.Context) {
 
 	message := &messaging.MulticastMessage{
 		Data: map[string]string{
-			"score": "850",
-			"time":  "2:45",
+			"data1": g.Param("data1"),
+			"data2": g.Param("data2"),
+			"data3": g.Param("data3"),
 		},
 		Notification: &messaging.Notification{
 			Title: g.Param("title"),
