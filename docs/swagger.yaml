@@ -1,13 +1,13 @@
 info:
   contact: {}
 paths:
-  /checkClientIp:
+  /CheckClientIp:
     get:
       consumes:
-      - application/json
+        - application/json
       description: Health Check from Client Ip
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -15,14 +15,14 @@ paths:
             type: string
       summary: Check Client Ip
       tags:
-      - Common
-  /push/samplePush:
+        - Common
+  /push/SamplePush:
     get:
       consumes:
-      - application/json
+        - application/json
       description: push messaging
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -30,5 +30,5 @@ paths:
             type: string
       summary: Pushing Message
       tags:
-      - Push
+        - Push
 swagger: "2.0"

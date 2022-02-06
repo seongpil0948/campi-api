@@ -23,7 +23,7 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/checkClientIp": {
+        "/CheckClientIp": {
             "get": {
                 "description": "Health Check from Client Ip",
                 "consumes": [
@@ -46,7 +46,7 @@ var doc = `{
                 }
             }
         },
-        "/push/samplePush": {
+        "/push/SamplePush": {
             "get": {
                 "description": "push messaging",
                 "consumes": [

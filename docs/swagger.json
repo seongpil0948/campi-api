@@ -1,54 +1,42 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "contact": {}
-    },
-    "paths": {
-        "/checkClientIp": {
-            "get": {
-                "description": "Health Check from Client Ip",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Common"
-                ],
-                "summary": "Check Client Ip",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
+  "swagger": "2.0",
+  "info": {
+    "contact": {}
+  },
+  "paths": {
+    "/CheckClientIp": {
+      "get": {
+        "description": "Health Check from Client Ip",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "tags": ["Common"],
+        "summary": "Check Client Ip",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
             }
-        },
-        "/push/samplePush": {
-            "get": {
-                "description": "push messaging",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Push"
-                ],
-                "summary": "Pushing Message",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
+    },
+    "/push/SamplePush": {
+      "get": {
+        "description": "push messaging",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "tags": ["Push"],
+        "summary": "Pushing Message",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
+  }
 }

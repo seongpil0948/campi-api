@@ -1,20 +1,25 @@
 package router
 
 import (
-	"campi/api/service/auth"
-
 	"github.com/gin-gonic/gin"
 )
 
 func SetAuthRoutes(g *gin.RouterGroup) {
-	// PingExample godoc
-	// @Summary ping example
-	// @Schemes
-	// @Description do ping
-	// @Tags example
-	// @Accept json
-	// @Produce json
-	// @Success 200 {string} Login
-	// @Router /auth/Login [post]
-	g.POST("/login", auth.Login)
+
+	g.POST("/login", Login)
+}
+
+// @Summary Login example
+// @Schemes
+// @Description Login
+// @Tags example
+// @Accept json
+// @Produce json
+// @Success 200 {string} Login
+// @Router /auth/Login [post]
+func Login(c *gin.Context) {
+	getPath := c.Request.URL.String()
+	c.JSON(200, gin.H{
+		"pathInfo": getPath,
+	})
 }
